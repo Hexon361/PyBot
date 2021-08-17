@@ -116,4 +116,4 @@ for filename in os.listdir('./cogs'):
 
 
 
-client.run('ODc2NDI1NDAwOTk2MjIwOTQ4.YRj4wg.ALjat4CMOVkabt8gg0vvYGVVJcA')
+client.run('TOKEN')
