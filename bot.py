@@ -27,7 +27,7 @@ async def help(ctx):
         colour = discord.Colour.gold()
     )
 
-    embed.add_field(name = "Administracja", value = "Ban\nKick\nClear\nNuke")
+    embed.add_field(name = "Administracja", value = "Ban\nKick\nClear\nNuke\nMute\nUnmute")
     embed.add_field(name = "Użytkownicy", value = "Avatar")
     embed.set_author(name=f'{ctx.message.author}', icon_url=f'{ctx.message.author.avatar_url}')
     embed.timestamp = datetime.datetime.utcnow()
@@ -110,10 +110,38 @@ async def avatar(ctx):
 
     await ctx.send(embed = embed)
 
+@help.command()
+async def mute(ctx):
+
+    embed = discord.Embed(
+        title = 'Mute',
+        description = 'Mutuje danego użytkownika',
+        colour = discord.Colour.gold()
+    )
+
+    embed.add_field(name = "`Syntax`", value = "!mute <member>")
+    embed.set_author(name=f'{ctx.message.author}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
+
+    await ctx.send(embed = embed)
+
+@help.command()
+async def unmute(ctx):
+
+    embed = discord.Embed(
+        title = 'Unmute',
+        description = 'Odmutowywuje danego użytkownika',
+        colour = discord.Colour.gold()
+    )
+
+    embed.add_field(name = "`Syntax`", value = "!unmute <member>")
+    embed.set_author(name=f'{ctx.message.author}', icon_url=f'{ctx.message.author.avatar_url}')
+    embed.timestamp = datetime.datetime.utcnow()
+
+    await ctx.send(embed = embed)
+
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
-
-
 
 client.run('TOKEN')
